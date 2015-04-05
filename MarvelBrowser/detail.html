@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="Scripts/jquery-2.1.3.min.js"></script>
+
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/bootstrap.superhero.min.css" />
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="Scripts/App/md5.js"></script>
+
+    <link rel="stylesheet" href="Content/app.css" />
+    <script type="text/javascript" src="Scripts/App/marvel.js"></script>
+    <script type="text/javascript" src="Scripts/App/events.js"></script>
+    <script type="text/javascript" src="Scripts/App/series.js"></script>
+    <script type="text/javascript" src="Scripts/App/comics.js"></script>
+    <script type="text/javascript" src="Scripts/App/characters.js"></script>
+    <script type="text/javascript" src="Scripts/App/app.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(MarvelBrowser.GetDetail)
+    </script>
+</head>
+<body>
+    <div id="divDetail" class="container-fluid"></div>
+    <!-- Image Modal -->
+    <div class="modal" id="mdlImage" data-show="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <!--<div class="modal-footer"></div>-->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- Processing Modal -->
+    <div class="modal" id="mdlProcessing" data-backdrop="static" data-keyboard="false" data-show="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Processing</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <!--<div class="modal-footer"></div>-->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <footer class="ftrAttribution text-center"></footer>
+</body>
+</html>
