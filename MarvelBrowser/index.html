@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Marvel Browser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="Scripts/jquery-2.1.3.min.js"></script>
+
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/bootstrap.superhero.min.css" />
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="Scripts/App/md5.js"></script>
+
+    <link rel="stylesheet" href="Content/app.css" />
+    <script type="text/javascript" src="Scripts/App/marvel.js"></script>
+    <script type="text/javascript" src="Scripts/App/events.js"></script>
+    <script type="text/javascript" src="Scripts/App/series.js"></script>
+    <script type="text/javascript" src="Scripts/App/comics.js"></script>
+    <script type="text/javascript" src="Scripts/App/characters.js"></script>
+    <script type="text/javascript" src="Scripts/App/app.js"></script>
+</head>
+<body>
+    <input type="hidden" id="hdnEntity" value="series" />
+    <div class="radio-inline">
+        <label>
+            <input type="radio" name="rdEntity" value="series" checked />
+            Series
+        </label>
+    </div>
+    <div class="radio-inline">
+        <label>
+            <input type="radio" name="rdEntity" value="comics" />
+            Comics
+        </label>
+    </div>
+    <div class="radio-inline">
+        <label>
+            <input type="radio" name="rdEntity" value="characters" />
+            Characters
+        </label>
+    </div>
+    <div class="radio-inline">
+        <label>
+            <input type="radio" name="rdEntity" value="events" />
+            Events
+        </label>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+        <div class="form-group hidden">
+            <input type="hidden" id="hdnOffset" class="form-control" value="0" />
+            <input type="hidden" class="hdnParamName" value="offset" />
+            <input type="hidden" class="hdnUsedInEntity" value="series" />
+            <input type="hidden" class="hdnUsedInEntity" value="comics" />
+            <input type="hidden" class="hdnUsedInEntity" value="characters" />
+        </div>
+        <div class="form-group form-group-sm col-sm-2">
+            <label>Title</label>
+            <input type="text" class="form-control" />
+            <input type="hidden" class="hdnParamName" value="title" />
+            <input type="hidden" class="hdnUsedInEntity" value="series" />
+            <input type="hidden" class="hdnUsedInEntity" value="comics" />
+        </div>
+        <div class="form-group form-group-sm col-sm-2">
+            <label>Title Starts With</label>
+            <input type="text" class="form-control" />
+            <input type="hidden" class="hdnParamName" value="titleStartsWith" />
+            <input type="hidden" class="hdnUsedInEntity" value="series" />
+            <input type="hidden" class="hdnUsedInEntity" value="comics" />
+        </div>
+        <div class="form-group form-group-sm col-sm-2">
+            <label>Name</label>
+            <input type="text" class="form-control" />
+            <input type="hidden" class="hdnParamName" value="name" />
+            <input type="hidden" class="hdnUsedInEntity" value="characters" />
+        </div>
+        <div class="form-group form-group-sm col-sm-2">
+            <label>Name Starts With</label>
+            <input type="text" class="form-control" />
+            <input type="hidden" class="hdnParamName" value="nameStartsWith" />
+            <input type="hidden" class="hdnUsedInEntity" value="characters" />
+        </div>
+        <div class="form-group form-group-sm col-sm-2">
+            <label>Start Year</label>
+            <input type="text" class="form-control" />
+            <input type="hidden" class="hdnParamName" value="startYear" />
+            <input type="hidden" class="hdnUsedInEntity" value="series" />
+            <input type="hidden" class="hdnUsedInEntity" value="comics" />
+        </div>
+        <div class="form-group form-group-sm col-sm-2">
+            <label>Modified Since</label>
+            <input type="text" class="form-control" />
+            <input type="hidden" class="hdnParamName" value="modifiedSince" />
+            <input type="hidden" class="hdnUsedInEntity" value="series" />
+            <input type="hidden" class="hdnUsedInEntity" value="comics" />
+            <input type="hidden" class="hdnUsedInEntity" value="characters" />
+            <input type="hidden" class="hdnUsedInEntity" value="events" />
+        </div>
+        <div class="form-group form-group-sm col-sm-2">
+            <label>Series Type</label>
+            <select name="seriesType" class="form-control">
+                <option></option>
+                <option value="collection">Collection</option>
+                <option value="one shot">One-Shot</option>
+                <option value="limited">Limited</option>
+                <option value="ongoing">Ongoing</option>
+            </select>
+            <input type="hidden" class="hdnParamName" value="seriesType" />
+            <input type="hidden" class="hdnUsedInEntity" value="series" />
+        </div>
+        <div class="form-group form-group-sm col-sm-2">
+            <label>Contains</label>
+            <select name="contains" class="form-control" multiple="multiple" style="height: 80px;">
+                <option value="comic">Comic</option>
+                <option value="magazine">Magazine</option>
+                <option value="trade paperback">Trade Paperback</option>
+                <option value="hardcover">Hardcover</option>
+                <option value="digest">Digest</option>
+                <option value="graphic novel">Graphic Novel</option>
+                <option value="digital comic">Digital Comic (Marvel Unlimited)</option>
+                <option value="infinite comic">Infinite Comic</option>
+            </select>
+            <input type="hidden" class="hdnParamName" value="contains" />
+            <input type="hidden" class="hdnUsedInEntity" value="series" />
+        </div>
+        <div class="form-group form-group-sm col-sm-2">
+            <label>Marvel Unlimited</label>
+            <select class="form-control">
+                <option></option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <input type="hidden" class="hdnParamName" value="hasDigitalIssue" />
+            <input type="hidden" class="hdnUsedInEntity" value="comics" />
+        </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-default btnSearch">Go</button>
+        </div>
+    </div>
+    <nav>
+      <ul class="pager">
+        <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+        <li class="next disabled"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
+    <div id="divResults" class="list-group"></div>
+    <nav>
+      <ul class="pager">
+        <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+        <li class="next disabled"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
+    <!-- Processing Modal -->
+    <div class="modal" id="mdlProcessing" data-backdrop="static" data-keyboard="false" data-show="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Processing</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <!--<div class="modal-footer"></div>-->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <footer class="ftrAttribution text-center"></footer>
+</body>
+</html>
