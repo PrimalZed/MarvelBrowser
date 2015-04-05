@@ -68,6 +68,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\events.js" />
+    <Content Include="Scripts\App\marvelkey.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\App\comics.js" />
