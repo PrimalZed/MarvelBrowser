@@ -85,6 +85,9 @@
 }
 
 function processComicTiles(results) {
+    if (results == null)
+        return;
+
     for (var i = 0; i < results.length; i++) {
         var comic = results[i];
 
@@ -94,9 +97,11 @@ function processComicTiles(results) {
         }
 
         $('#divComics').append(
-            '<div class="col-md-3 col-md-2">' +
+            '<div class="col-md-3 col-lg-2">' +
                 '<div class="panel panel-default">' +
-                    img +
+                    '<div class="text-center">' +
+                        img +
+                    '</div>' +
                 '</div>' +
             '</div>'
         );

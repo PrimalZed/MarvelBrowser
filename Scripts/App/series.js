@@ -170,12 +170,15 @@ function processSeriesDetail(series) {
                 descDiv +
                 linksDiv +
                 creatorsDiv +
-                comicsDiv +
+                //comicsDiv +
                 '</div>' +
             '</div>' +
         '</div>' +
+        '</div>' +
+        '<div id="divComics" class="row">' + 
         '</div>'
     );
+    Marvel.ByQuery('series/' + series.id + '/comics', ["format=comic"], processComicTiles, null, null);
 }
 
 function seriesDescDiv(series) {
