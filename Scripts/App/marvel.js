@@ -120,5 +120,3 @@ var Marvel = function () {
         ReplaceReaderUrl: replaceReaderUrl
     };
 }();
-
-$.getScript("/Scripts/App/marvelkey.js");
