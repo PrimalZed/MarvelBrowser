@@ -1,1 +1,2 @@
-$ git config --global filter.gitignorelines.clean "sed '/gitignorelines$/'d"
+$ git config --global filter.gitignoreline.clean "sed '/\\/gitignore$/'d"
+$ git config --global filter.gitignoreline.smudge cat
