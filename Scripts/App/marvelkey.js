@@ -1,0 +1,1 @@
+var mvarelPrivateKey = "test"; //gitignore
