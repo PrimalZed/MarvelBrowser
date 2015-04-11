@@ -85,6 +85,8 @@
 }
 
 function processComicTiles(results) {
+    $("#divComicProgress").remove();
+
     if (results == null)
         return;
 
@@ -96,7 +98,7 @@ function processComicTiles(results) {
             img = '<img src="' + comic.thumbnail.path + '/portrait_incredible.' + comic.thumbnail.extension + '"/>';
         }
 
-        $('#divComics').append(
+        $('#divDetail > div.row').append(
             '<div class="col-md-3 col-lg-2">' +
                 '<div class="panel panel-default">' +
                     '<div class="text-center">' +

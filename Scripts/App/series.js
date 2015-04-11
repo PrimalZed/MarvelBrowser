@@ -175,8 +175,13 @@ function processSeriesDetail(series) {
             '</div>' +
         '</div>' +
         '</div>' +
-        '<div id="divComics" class="row">' + 
-        '</div>'
+        //'<div id="divComics">' +
+            '<div id="divComicProgress" class="col-sm-9 col-md-8 col-lg-6" style="margin: 20px;">' +
+            '<div class="progress"">' +
+                '<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>' +
+            '</div>' +
+            '</div>'
+        //'</div>'
     );
     Marvel.ByQuery('series/' + series.id + '/comics', ["format=comic"], processComicTiles, null, null);
 }
