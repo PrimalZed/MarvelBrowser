@@ -72,7 +72,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\App\comics.js" />
-    <Content Include="Scripts\comicvine.js" />
     <Content Include="Scripts\App\marvel.js" />
     <Content Include="Scripts\App\md5.js" />
     <Content Include="Scripts\npm.js" />
