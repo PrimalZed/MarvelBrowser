@@ -7,7 +7,7 @@
 
         var img = '';
         if (series.thumbnail) {
-            img = '<img class="seriesThumbnail" src="' + series.thumbnail.path + '/standard_amazing.' + series.thumbnail.extension + '"/>';
+            img = '<img class="seriesThumbnail img-responsive" src="' + series.thumbnail.path + '/standard_fantastic.' + series.thumbnail.extension + '"/>';
         }
 
         var href = "#";
@@ -59,8 +59,12 @@
             eventsDiv += '<li>' + series.events.items[j].name + '</li>';
         }
         eventsDiv += '</ul></div>';
+        var href = location.href.split("?")[0];
+        if (href.indexOf('index.html') != -1) {
+            href = href.substr(0, href.indexOf('index.html'));
+        }
         $("#divResults").append(
-            '<a href="/detail.html?entity=series&id=' + series.id + '" class="list-group-item container-fluid">' +
+            '<a href="' + href + 'detail.html?entity=series&id=' + series.id + '" class="list-group-item container-fluid">' +
             '<div class="row">' +
             '<div class="col-md-2">' +
             img +
