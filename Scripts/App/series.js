@@ -59,6 +59,7 @@
             eventsDiv += '<li>' + series.events.items[j].name + '</li>';
         }
         eventsDiv += '</ul></div>';
+
         var href = location.href.split("?")[0];
         if (href.indexOf('index.html') != -1) {
             href = href.substr(0, href.indexOf('index.html'));
@@ -79,34 +80,6 @@
             '</div>' +
             '<a>'
         );
-        //$("#divResults").append(
-        //    '<div class="row">' +
-        //    '<div class="col-sm-3 col-md-2">' +
-        //        img +
-        //    '</div>' +
-        //    '<div class="col-sm-9 col-md-10">' +
-        //        '<h2><a href="/detail.html?entity=series&id=' + series.id + '">' + series.title + '</a></h2>' +
-        //        '<ul class="nav nav-tabs" role="tablist">' +
-        //            '<li class="active"><a data-toggle="tab" href="#desc' + series.id + '">Description</a></li>' +
-        //            '<li><a data-toggle="tab" href="#links' + series.id + '">Links</a></li>' +
-        //            '<li><a data-toggle="tab" href="#creators' + series.id + '">Creators</a></li>' +
-        //            '<li><a data-toggle="tab" href="#comics' + series.id + '">Comics</a></li>' +
-        //            '<li><a data-toggle="tab" href="#characters' + series.id + '">Characters</a></li>' +
-        //            '<li><a data-toggle="tab" href="#stories' + series.id + '">Stories</a></li>' +
-        //            '<li><a data-toggle="tab" href="#events' + series.id + '">Events</a></li>' +
-        //        '</ul>' +
-        //        '<div class="tab-content">' +
-        //            descDiv +
-        //            linksDiv +
-        //            creatorsDiv +
-        //            comicsDiv +
-        //            charactersDiv +
-        //            storiesDiv +
-        //            eventsDiv +
-        //        '</div>' +
-        //    '</div>' +
-        //    '</div>'
-        //);
     }
 }
 
@@ -135,24 +108,26 @@ function processSeriesDetail(series) {
     }
     linksDiv += '</ul></div>';
 
+    var href = location.href.split("?")[0];
+    if (href.indexOf('detail.html') != -1) {
+        href = href.substr(0, href.indexOf('detail.html'));
+    }
+
     var creatorsDiv = '<div id="creators' + series.id + '">' +
-        $.map(series.creators.items, function (creator)
-        {
+        $.map(series.creators.items, function (creator) {
             var creatorParts = [];
-            creatorParts.push('<a href="/detail.html?entity=creators&id=' + Marvel.GetResourceId(creator.resourceURI) + '">' + creator.name + '</a>');
+            creatorParts.push('<a href="' + href + 'detail.html?entity=creators&id=' + Marvel.GetResourceId(creator.resourceURI) + '">' + creator.name + '</a>');
             if (creator.role)
                 creatorParts.push(creator.role);
             return creatorParts.join(', ');
         }).join('; ') +
         '</div>';
 
-    var comicsDiv = '<div id="comics' + series.id + '" class="tab-pane"><ul>';
-    for (var j = 0; j < series.comics.returned; j++) {
-        comicsDiv += '<li><a href="/detail.html?entity=comics&id=' + Marvel.GetResourceId(series.comics.items[j].resourceURI) + '">' +
-            series.comics.items[j].name +
-            '</a></li>';
-    }
-    comicsDiv += '</ul></div>';
+    var charactersDiv = '<div id="characters' + series.id + '">' +
+        $.map(series.characters.items, function (character) {
+            return '<a href="' + href + 'detail.html?entity=creators&id=' + Marvel.GetResourceId(character.resourceURI) + '">' + character.name + '</a>';
+        }).join('; ') +
+        '</div>';
 
     $("#divDetail").html(
         '<div class="row">' +
@@ -177,17 +152,17 @@ function processSeriesDetail(series) {
                 descDiv +
                 linksDiv +
                 creatorsDiv +
-                //comicsDiv +
+                charactersDiv +
                 '</div>' +
             '</div>' +
         '</div>' +
         //'</div>' +
         //'<div id="divComics">' +
-            '<div id="divComicProgress" class="col-sm-8 col-md-7 col-lg-5" style="margin: 20px;">' +
+        '<div id="divComicProgress" class="col-sm-8 col-md-7 col-lg-5" style="margin: 20px;">' +
             '<div class="progress">' +
                 '<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>' +
             '</div>' +
-            '</div>' +
+        '</div>' +
         //'</div>' +
         '</div>'
     );
