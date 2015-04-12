@@ -102,10 +102,16 @@ function processComicTiles(results) {
             img = '<img class="img-responsive center-block" src="' + comic.thumbnail.path + '/portrait_incredible.' + comic.thumbnail.extension + '"/>';
         }
 
-        var readerLink = '';
+        var links = '';
         for (var j = 0; j < comic.urls.length; j++) {
-            if (comic.urls[j].type == 'reader')
-                readerLink = '<div><a href="' + Marvel.ReplaceReaderUrl(comic.urls[j].url) + '" target="_blank">Reader</a></div>';
+            switch (comic.urls[j].type) {
+                case 'detail':
+                    links += '<div><a href="' + comic.urls[j].url + '" target="_blank">Marvel.com</a></div>';
+                    break;
+                case 'reader':
+                    links += '<div><a href="' + Marvel.ReplaceReaderUrl(comic.urls[j].url) + '" target="_blank">Reader</a></div>';
+                    break;
+            }
         }
 
         $('#divDetail > div.row').append(
@@ -114,7 +120,7 @@ function processComicTiles(results) {
                     '<div class="text-center">' +
                         img +
                         '<div>' + comic.title + '</div>' +
-                        readerLink +
+                        links +
                     '</div>' +
                 '</div>' +
             '</div>'
