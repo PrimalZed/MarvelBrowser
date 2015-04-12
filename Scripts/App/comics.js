@@ -109,7 +109,7 @@ function processComicTiles(results) {
         }
 
         $('#divDetail > div.row').append(
-            '<div class="col-md-3 col-lg-2">' +
+            '<div class="col-sm-6 col-md-3 col-lg-2">' +
                 '<div class="panel panel-default">' +
                     '<div class="text-center">' +
                         img +
