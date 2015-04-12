@@ -22,46 +22,6 @@ var Marvel = function () {
         }
         return url;
     };
-
-    var getCharacters = function (parameters, callback) {
-        var url = buildUrl("characters", parameters);
-        
-        $.ajax({
-            url: url
-        })
-        .done(function (d, status, xhr) {
-            callback(d.data.results);
-        })
-        .fail(function (xhr, status, error) {
-
-        });
-    };
-    var getSeries = function (parameters, callback) {
-        var url = buildUrl("series", parameters);
-
-        $.ajax({
-            url: url
-        })
-        .done(function (d, status, xhr) {
-            callback(d.data.results);
-        })
-        .fail(function (xhr, status, error) {
-
-        });
-    };
-    var getComics = function (parameters, callback) {
-        var url = buildUrl("comics", parameters);
-
-        $.ajax({
-            url: url
-        })
-        .done(function (d, status, xhr) {
-            callback(d.data.results);
-        })
-        .fail(function (xhr, status, error) {
-
-        });
-    };
     var byQuery = function (entity, parameters, callback, attributionCallback, pagingCallback) {
         var url = buildUrl(entity, parameters);
 
@@ -111,9 +71,6 @@ var Marvel = function () {
         return 'http://read.marvel.com/#/book/' + id;
     };
     return {
-        GetCharacters: getCharacters,
-        GetSeries: getSeries,
-        GetComics: getComics,
         ByQuery: byQuery,
         Retrieve: retrieve,
         GetResourceId: getResourceId,

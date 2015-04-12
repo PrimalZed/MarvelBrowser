@@ -4,7 +4,7 @@
 
         var img = '';
         if (series.thumbnail) {
-            img = '<img class="seriesThumbnail" src="' + series.thumbnail.path + '/portrait_xlarge.' + series.thumbnail.extension + '"/>';
+            img = '<img class="seriesThumbnail" src="' + series.thumbnail.path + '/standard_amazing.' + series.thumbnail.extension + '"/>';
         }
 
         var href = "#";
@@ -174,14 +174,15 @@ function processSeriesDetail(series) {
                 '</div>' +
             '</div>' +
         '</div>' +
-        '</div>' +
+        //'</div>' +
         //'<div id="divComics">' +
-            '<div id="divComicProgress" class="col-sm-9 col-md-8 col-lg-6" style="margin: 20px;">' +
-            '<div class="progress"">' +
+            '<div id="divComicProgress" class="col-sm-8 col-md-7 col-lg-5" style="margin: 20px;">' +
+            '<div class="progress">' +
                 '<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>' +
             '</div>' +
-            '</div>'
-        //'</div>'
+            '</div>' +
+        //'</div>' +
+        '</div>'
     );
     Marvel.ByQuery('series/' + series.id + '/comics', ["format=comic"], processComicTiles, null, null);
 }

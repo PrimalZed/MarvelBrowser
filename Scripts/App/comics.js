@@ -93,9 +93,19 @@ function processComicTiles(results) {
     for (var i = 0; i < results.length; i++) {
         var comic = results[i];
 
+        // Don't include variants
+        if (comic.variantDescription != '')
+            continue;
+
         var img = '';
         if (comic.thumbnail) {
             img = '<img src="' + comic.thumbnail.path + '/portrait_incredible.' + comic.thumbnail.extension + '"/>';
+        }
+
+        var readerLink = '';
+        for (var j = 0; j < comic.urls.length; j++) {
+            if (comic.urls[j].type == 'reader')
+                readerLink = '<div><a href="' + Marvel.ReplaceReaderUrl(comic.urls[j].url) + '" target="_blank">Reader</a></div>';
         }
 
         $('#divDetail > div.row').append(
@@ -103,6 +113,8 @@ function processComicTiles(results) {
                 '<div class="panel panel-default">' +
                     '<div class="text-center">' +
                         img +
+                        '<div>' + comic.title + '</div>' +
+                        readerLink +
                     '</div>' +
                 '</div>' +
             '</div>'

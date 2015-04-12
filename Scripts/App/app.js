@@ -51,9 +51,57 @@
         $("#mdlImage .modal-body").html(bigImg);
         $("#mdlImage").modal("show");
     });
+
+    MarvelBrowser.OnLoad();
 });
 
 var MarvelBrowser = {
+    OnLoad: function() {
+        var params = getParams();
+        if (params == {})
+            return;
+
+        // Set controls with params
+
+        var entity = params.entity;
+
+        // Perform query
+
+        $("#divResults").empty();
+
+        $("#mdlProcessing").modal('show');
+
+        var callback = function (results) { };
+
+        switch (entity) {
+            case "events":
+                callback = processEvents;
+                break;
+            case "series":
+                callback = processSeries;
+                break;
+            case "comics":
+                callback = processComics;
+                break;
+            case "characters":
+                callback = processCharacters
+                break;
+        }
+
+        var parameters = [];
+        for (var param in params)
+        {
+            if (param == "entity")
+                continue;
+
+            parameters.push(param + '=' + params[param]);
+        }
+
+        Marvel.ByQuery(entity, parameters, function (results) {
+            callback(results);
+            $("#mdlProcessing").modal('hide');
+        }, MarvelBrowser.UpdateAttribution, MarvelBrowser.UpdatePaging);
+    },
     Search: function () {
         var entity = $("input[name='rdEntity']:checked").val();
 
@@ -82,31 +130,12 @@ var MarvelBrowser = {
             parameters.push(paramName + "=" + value);
         });
 
-        var callback = function (results) { };
+        var href = window.location.href.split('?')[0] + '?entity=' + entity;
 
-        switch (entity) {
-            case "events":
-                callback = processEvents;
-                break;
-            case "series":
-                callback = processSeries;
-                break;
-            case "comics":
-                callback = processComics;
-                break;
-            case "characters":
-                callback = processCharacters
-                break;
-        }
+        if (parameters.length != 0)
+            href += '&' + parameters.join('&');
 
-        $("#divResults").empty();
-
-        $("#mdlProcessing").modal('show');
-
-        Marvel.ByQuery(entity, parameters, function (results) {
-            callback(results);
-            $("#mdlProcessing").modal('hide');
-        }, MarvelBrowser.UpdateAttribution, MarvelBrowser.UpdatePaging);
+        window.location.href = href;
     },
     GetDetail: function () {
         var params = getParams();
