@@ -103,8 +103,14 @@ function processSeriesDetail(series) {
 
     var linksDiv = '<div id="links' + series.id + '"><ul>';
     for (var j = 0; j < series.urls.length; j++) {
-        //linksDiv += '<li><a href="' + series.urls[j].url + '">' + series.urls[j].type + '</a></li>';
-        linksDiv += '<li>' + '<button class="btn btn-link btnLink" value="' + series.urls[j].url + '">' + series.urls[j].type + '</button></li>';
+        switch (series.urls[j].type) {
+            case 'detail':
+                linksDiv += '<li><a href="' + series.urls[j].url + '">Marvel.com</a></li>';
+                break;
+            default:
+                linksDiv += '<li><a href="' + series.urls[j].url + '">' + series.urls[j].type + '</a></li>';
+                break;
+        }
     }
     linksDiv += '</ul></div>';
 
