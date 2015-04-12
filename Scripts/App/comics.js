@@ -99,7 +99,7 @@ function processComicTiles(results) {
 
         var img = '';
         if (comic.thumbnail) {
-            img = '<img src="' + comic.thumbnail.path + '/portrait_incredible.' + comic.thumbnail.extension + '"/>';
+            img = '<img class="img-responsive center-block" src="' + comic.thumbnail.path + '/portrait_incredible.' + comic.thumbnail.extension + '"/>';
         }
 
         var readerLink = '';
