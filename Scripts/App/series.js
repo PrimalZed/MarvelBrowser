@@ -1,4 +1,7 @@
 ﻿function processSeries(results) {
+    if (results == null)
+        return;
+
     for (var i = 0; i < results.length; i++) {
         var series = results[i];
 
@@ -109,13 +112,13 @@ function processSeriesDetail(series) {
     var imgLg = '';
     if (series.thumbnail) {
         imgSm = '<a target="_blank" href="' + series.thumbnail.path + '.' + series.thumbnail.extension + '">' +
-            '<img class="seriesThumbnail" src="' + series.thumbnail.path + '/standard_large.' + series.thumbnail.extension + '"/>' +
+            '<img class="seriesThumbnail img-responsive center-block" src="' + series.thumbnail.path + '/standard_large.' + series.thumbnail.extension + '"/>' +
             '</a>';
         imgMd = '<a target="_blank" href="' + series.thumbnail.path + '.' + series.thumbnail.extension + '">' +
-            '<img class="seriesThumbnail" src="' + series.thumbnail.path + '/standard_fantastic.' + series.thumbnail.extension + '"/>' +
+            '<img class="seriesThumbnail img-responsive center-block" src="' + series.thumbnail.path + '/standard_fantastic.' + series.thumbnail.extension + '"/>' +
             '</a>';
         imgLg = '<a target="_blank" href="' + series.thumbnail.path + '.' + series.thumbnail.extension + '">' +
-            '<img class="seriesThumbnail" src="' + series.thumbnail.path + '/detail.' + series.thumbnail.extension + '"/>' +
+            '<img class="seriesThumbnail img-responsive center-block" src="' + series.thumbnail.path + '/detail.' + series.thumbnail.extension + '"/>' +
             '</a>';
     }
 
