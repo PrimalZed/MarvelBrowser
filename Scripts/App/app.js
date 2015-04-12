@@ -57,9 +57,10 @@
 
 var MarvelBrowser = {
     OnLoad: function() {
-        var params = getParams();
-        if (params == {})
+        if (location.search == '')
             return;
+            
+        var params = getParams();
 
         // Set controls with params
 
