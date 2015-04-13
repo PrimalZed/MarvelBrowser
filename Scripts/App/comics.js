@@ -120,6 +120,8 @@ function processComicTiles(results) {
                     '<div class="text-center">' +
                         img +
                         '<div>' + comic.title + '</div>' +
+                    '</div>' +
+                    '<div class="text-center">' +
                         links +
                     '</div>' +
                 '</div>' +

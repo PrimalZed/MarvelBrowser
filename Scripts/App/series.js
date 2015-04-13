@@ -24,42 +24,6 @@
         }
         linksDiv += '</ul></div>';
 
-        var creatorsDiv = '<div id="creators' + series.id + '" class="tab-pane"><ul>';
-        for (var j = 0; j < series.creators.returned; j++) {
-            creatorsDiv += '<li>' + series.creators.items[j].name + '</li>';
-        }
-        creatorsDiv += '</ul></div>';
-
-        var comicsDiv = '<div id="comics' + series.id + '" class="tab-pane"><ul>';
-        for (var j = 0; j < series.comics.returned; j++) {
-            comicsDiv += '<li>' + series.comics.items[j].name + '</li>';
-        }
-        comicsDiv += '</ul></div>';
-
-        var charactersDiv = '<div id="characters' + series.id + '" class="tab-pane"><ul>';
-        for (var j = 0; j < series.characters.returned; j++) {
-            charactersDiv += '<li>' + series.characters.items[j].name + '</li>';
-        }
-        charactersDiv += '</ul></div>';
-
-        var storiesDiv = '<div id="stories' + series.id + '" class="tab-pane"><ul>';
-        for (var j = 0; j < series.stories.returned; j++) {
-            storiesDiv += '<li>' + series.stories.items[j].name + '</li>';
-        }
-        storiesDiv += '</ul></div>';
-
-        var storiesDiv = '<div id="stories' + series.id + '" class="tab-pane"><ul>';
-        for (var j = 0; j < series.stories.returned; j++) {
-            storiesDiv += '<li>' + series.stories.items[j].name + '</li>';
-        }
-        storiesDiv += '</ul></div>';
-
-        var eventsDiv = '<div id="events' + series.id + '" class="tab-pane"><ul>';
-        for (var j = 0; j < series.events.returned; j++) {
-            eventsDiv += '<li>' + series.events.items[j].name + '</li>';
-        }
-        eventsDiv += '</ul></div>';
-
         var href = location.href.split("?")[0];
         if (href.indexOf('index.html') != -1) {
             href = href.substr(0, href.indexOf('index.html'));
