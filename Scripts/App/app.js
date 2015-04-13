@@ -118,6 +118,7 @@ var MarvelBrowser = {
         }, MarvelBrowser.UpdateAttribution, MarvelBrowser.UpdatePaging);
     },
     Search: function () {
+        // TODO: Clear paging if search button clicked instead of paging control?
         var entity = $("input[name='rdEntity']:checked").val();
 
         var parameters = [];
