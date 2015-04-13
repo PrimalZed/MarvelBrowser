@@ -8,7 +8,6 @@
         $("#divResults").empty();
     }
     $("input[name='rdEntity']:radio").change(chooseFilters);
-    chooseFilters();
 
     $(".pager > .previous > a").click(function () {
         var offset = parseInt($("#hdnOffset").val());
@@ -69,6 +68,18 @@ var MarvelBrowser = {
 
         var entity = params.entity;
 
+        $('input[name="rdEntity"][value="' + entity + '"]').attr('checked', true).change();
+
+        for (var param in params) {
+            var control = $('.form-control[name="' + param + '"]');
+            if ($(control).is('[multiple]')) {
+                control.val(params[param].split(','));
+            }
+            else {
+                control.val(params[param]);
+            }
+        }
+
         // Perform query
 
         $("#divResults").empty();
@@ -124,13 +135,14 @@ var MarvelBrowser = {
             }
 
             if ($(this).is("[multiple]")) {
+                var i = 0;
                 //value = $(this).find("option[selected]").map(function () { return this.value; }).get().join(',');
             }
 
             if (value == null || value == "" || value == "0")
                 return;
 
-            var paramName = $(this).closest(".form-group").find("input.hdnParamName").val();
+            var paramName = $(this).attr('name');
             parameters.push(paramName + "=" + value);
         });
 

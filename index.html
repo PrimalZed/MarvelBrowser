@@ -50,49 +50,42 @@
     <div class="container-fluid">
         <div class="row">
         <div class="form-group hidden">
-            <input type="hidden" id="hdnOffset" class="form-control" value="0" />
-            <input type="hidden" class="hdnParamName" value="offset" />
+            <input type="hidden" id="hdnOffset" name="offset" class="form-control" value="0" />
             <input type="hidden" class="hdnUsedInEntity" value="series" />
             <input type="hidden" class="hdnUsedInEntity" value="comics" />
             <input type="hidden" class="hdnUsedInEntity" value="characters" />
         </div>
         <div class="form-group form-group-sm col-sm-2">
             <label>Title</label>
-            <input type="text" class="form-control" />
-            <input type="hidden" class="hdnParamName" value="title" />
+            <input type="text" name="title" class="form-control" />
             <input type="hidden" class="hdnUsedInEntity" value="series" />
             <input type="hidden" class="hdnUsedInEntity" value="comics" />
         </div>
         <div class="form-group form-group-sm col-sm-2">
             <label>Title Starts With</label>
-            <input type="text" class="form-control" />
-            <input type="hidden" class="hdnParamName" value="titleStartsWith" />
+            <input type="text" name="titleStartsWith" class="form-control" />
             <input type="hidden" class="hdnUsedInEntity" value="series" />
             <input type="hidden" class="hdnUsedInEntity" value="comics" />
         </div>
         <div class="form-group form-group-sm col-sm-2">
             <label>Name</label>
-            <input type="text" class="form-control" />
-            <input type="hidden" class="hdnParamName" value="name" />
+            <input type="text" name="name" class="form-control" />
             <input type="hidden" class="hdnUsedInEntity" value="characters" />
         </div>
         <div class="form-group form-group-sm col-sm-2">
             <label>Name Starts With</label>
-            <input type="text" class="form-control" />
-            <input type="hidden" class="hdnParamName" value="nameStartsWith" />
+            <input type="text" name="nameStartsWith" class="form-control" />
             <input type="hidden" class="hdnUsedInEntity" value="characters" />
         </div>
         <div class="form-group form-group-sm col-sm-2">
             <label>Start Year</label>
-            <input type="text" class="form-control" />
-            <input type="hidden" class="hdnParamName" value="startYear" />
+            <input type="text" name="startYear" class="form-control" />
             <input type="hidden" class="hdnUsedInEntity" value="series" />
             <input type="hidden" class="hdnUsedInEntity" value="comics" />
         </div>
         <div class="form-group form-group-sm col-sm-2">
             <label>Modified Since</label>
-            <input type="text" class="form-control" />
-            <input type="hidden" class="hdnParamName" value="modifiedSince" />
+            <input type="text" name="modifiedSince" class="form-control" />
             <input type="hidden" class="hdnUsedInEntity" value="series" />
             <input type="hidden" class="hdnUsedInEntity" value="comics" />
             <input type="hidden" class="hdnUsedInEntity" value="characters" />
@@ -127,12 +120,11 @@
         </div>
         <div class="form-group form-group-sm col-sm-2">
             <label>Marvel Unlimited</label>
-            <select class="form-control">
+            <select name="hasDigitalIssue" class="form-control">
                 <option></option>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
-            <input type="hidden" class="hdnParamName" value="hasDigitalIssue" />
             <input type="hidden" class="hdnUsedInEntity" value="comics" />
         </div>
         </div>
