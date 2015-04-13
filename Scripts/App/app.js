@@ -33,11 +33,14 @@
     $('.modal').on('show.bs.modal', centerModals);
     $(window).on('resize', centerModals);
 
+    $('.form-group').keypress(function (e) {
+        if (e.which == 13) {
+            $('.btnSearch').click();
+        }
+    });
+
     $(".btnSearch").click(MarvelBrowser.Search);
 
-    $("body").on("click", ".btnLink", function () {
-        window.location.href = $(this).val();
-    });
     $("body").on("click", ".btnImageDetail", function () {
         var imgUrl = $(this).find("input.hdnImgUrl").val();
         var title = $(this).find("input.hdnTitle").val();
